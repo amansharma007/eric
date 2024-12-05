@@ -3,9 +3,17 @@ models: models.json
 custom_nodes: custom_nodes.json
 user_models: user_models.json
 user_custom_nodes: user_custom_nodes.json
-workflows: []
+workflows:
+  - id: u4qufxawoo
+    name: poster_api.json
+    file: basic_workflows/poster_api.json
+    version: 1
+    description: ''
+    inputs: []
+    outputs: []
+    skip_preprocess: true
 normal_workflows:
   - id: i66wkq793s
     name: poster.json
     file: basic_workflows/poster.json
-    version: 0
+    version: 1
