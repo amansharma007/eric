@@ -1,4 +1,4 @@
-version: 0
+version: 1
 models: models.json
 custom_nodes: custom_nodes.json
 user_models: user_models.json
@@ -9,8 +9,31 @@ workflows:
     file: basic_workflows/poster_api.json
     version: 1
     description: ''
-    inputs: []
-    outputs: []
+    inputs:
+      - path: 928.inputs.text_a
+        label: Prompt 1
+        parameter_name: text_a_29853
+        type: string
+        demo_type: text
+        category: input
+        randomize: false
+      - path: 928.inputs.text_b
+        label: Prompt 2
+        parameter_name: text_b_64642
+        type: string
+        demo_type: text
+        category: input
+        randomize: false
+      - path: 914.inputs.filename_prefix
+        label: filename_prefix
+        parameter_name: filename_prefix_41820
+        type: string
+        demo_type: text
+        category: output
+        randomize: true
+    outputs:
+      - label: Output Image
+        demo_type: image
     skip_preprocess: true
 normal_workflows:
   - id: i66wkq793s
