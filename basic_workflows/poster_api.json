@@ -1,0 +1,452 @@
+{
+    "358": {
+        "inputs": {
+            "samples": [
+                "389:5",
+                0
+            ],
+            "vae": [
+                "449",
+                0
+            ]
+        },
+        "class_type": "VAEDecode"
+    },
+    "444": {
+        "inputs": {
+            "clip_l": "",
+            "t5xxl": [
+                "928",
+                0
+            ],
+            "guidance": 1,
+            "clip": [
+                "913",
+                1
+            ]
+        },
+        "class_type": "CLIPTextEncodeFlux"
+    },
+    "445": {
+        "inputs": {
+            "width": [
+                "1003",
+                0
+            ],
+            "height": [
+                "1004",
+                0
+            ],
+            "batch_size": 1
+        },
+        "class_type": "EmptySD3LatentImage"
+    },
+    "449": {
+        "inputs": {
+            "vae_name": "ae.safetensors"
+        },
+        "class_type": "VAELoader"
+    },
+    "453": {
+        "inputs": {
+            "max_shift": 1.5,
+            "base_shift": 0.8,
+            "width": [
+                "1003",
+                0
+            ],
+            "height": [
+                "1004",
+                0
+            ],
+            "model": [
+                "913",
+                0
+            ]
+        },
+        "class_type": "ModelSamplingFlux"
+    },
+    "461": {
+        "inputs": {},
+        "class_type": "UnetLoaderGGUF"
+    },
+    "462": {
+        "inputs": {
+            "clip_name1": "flux/t5xxl_fp16.safetensors",
+            "clip_name2": "flux/clip_l.safetensors",
+            "type": "flux"
+        },
+        "class_type": "DualCLIPLoaderGGUF"
+    },
+    "512": {
+        "inputs": {
+            "unet_name": null,
+            "weight_dtype": "default"
+        },
+        "class_type": "UNETLoader"
+    },
+    "513": {
+        "inputs": {
+            "clip_name1": "clip_l.safetensors",
+            "clip_name2": "clip_l.safetensors",
+            "type": "flux"
+        },
+        "class_type": "DualCLIPLoader"
+    },
+    "913": {
+        "inputs": {
+            "ckpt_name": "FLUX1/flux1-dev-fp8.safetensors"
+        },
+        "class_type": "CheckpointLoaderSimple"
+    },
+    "914": {
+        "inputs": {
+            "filename_prefix": "2024-12-05/VALHALLA/Valhalla_232336_",
+            "images": [
+                "971",
+                0
+            ]
+        },
+        "class_type": "SaveImage"
+    },
+    "928": {
+        "inputs": {
+            "action": "append",
+            "tidy_tags": "yes",
+            "text_a": "a professional close up photograph of a large bottle is full of galactic pink liquid. It has a large old fashioned label with a skull that says \"FLUX JUICE\" in a big bold font.",
+            "text_b": "background blurry alchemists lab medieval times, dusty",
+            "text_c": "",
+            "result": "a professional close up photograph of a large bottle is full of galactic pink liquid. It has a large old fashioned label with a skull that says \"FLUX JUICE\" in a big bold font., background blurry alchemists lab medieval times, dusty"
+        },
+        "class_type": "StringFunction|pysssss"
+    },
+    "933": {
+        "inputs": {
+            "sharpen_radius": 1,
+            "sigma": 0.2,
+            "alpha": 1,
+            "image": [
+                "358",
+                0
+            ]
+        },
+        "class_type": "ImageSharpen"
+    },
+    "969": {
+        "inputs": {
+            "pixels": [
+                "933",
+                0
+            ],
+            "vae": [
+                "449",
+                0
+            ]
+        },
+        "class_type": "VAEEncode"
+    },
+    "970": {
+        "inputs": {
+            "samples": [
+                "976:5",
+                0
+            ],
+            "vae": [
+                "449",
+                0
+            ]
+        },
+        "class_type": "VAEDecode"
+    },
+    "971": {
+        "inputs": {
+            "sharpen_radius": 1,
+            "sigma": 0.2,
+            "alpha": 1,
+            "image": [
+                "970",
+                0
+            ]
+        },
+        "class_type": "ImageSharpen"
+    },
+    "972": {
+        "inputs": {
+            "rgthree_comparer": {
+                "images": [
+                    {
+                        "name": "A",
+                        "selected": true,
+                        "url": "/api/view?filename=rgthree.compare._temp_bglys_00005_.png&type=temp&subfolder=&rand=0.37292179891816435"
+                    },
+                    {
+                        "name": "B",
+                        "selected": true,
+                        "url": "/api/view?filename=rgthree.compare._temp_bglys_00006_.png&type=temp&subfolder=&rand=0.143527704852898"
+                    }
+                ]
+            },
+            "image_a": [
+                "933",
+                0
+            ],
+            "image_b": [
+                "971",
+                0
+            ]
+        },
+        "class_type": "Image Comparer (rgthree)"
+    },
+    "984": {
+        "inputs": {
+            "filename_prefix": "2024-12-05/Thor/Thor_232336_",
+            "images": [
+                "933",
+                0
+            ]
+        },
+        "class_type": "SaveImage"
+    },
+    "1003": {
+        "inputs": {
+            "expression": "768 * a",
+            "a": [
+                "1006",
+                1
+            ]
+        },
+        "class_type": "MathExpression|pysssss"
+    },
+    "1004": {
+        "inputs": {
+            "expression": "1344 * a",
+            "a": [
+                "1006",
+                1
+            ]
+        },
+        "class_type": "MathExpression|pysssss"
+    },
+    "1006": {
+        "inputs": {
+            "expression": "1\n\n"
+        },
+        "class_type": "MathExpression|pysssss"
+    },
+    "389:0": {
+        "inputs": {
+            "noise_seed": 228
+        },
+        "class_type": "RandomNoise"
+    },
+    "389:1": {
+        "inputs": {
+            "sampler_name": "lcm"
+        },
+        "class_type": "KSamplerSelect"
+    },
+    "389:2": {
+        "inputs": {
+            "scheduler": "beta",
+            "steps": 20,
+            "denoise": 1,
+            "model": [
+                "453",
+                0
+            ]
+        },
+        "class_type": "BasicScheduler"
+    },
+    "389:3": {
+        "inputs": {
+            "guidance": 1,
+            "conditioning": [
+                "444",
+                0
+            ]
+        },
+        "class_type": "FluxGuidance"
+    },
+    "389:4": {
+        "inputs": {
+            "model": [
+                "453",
+                0
+            ],
+            "conditioning": [
+                "389:3",
+                0
+            ]
+        },
+        "class_type": "BasicGuider"
+    },
+    "389:5": {
+        "inputs": {
+            "noise": [
+                "389:0",
+                0
+            ],
+            "guider": [
+                "389:4",
+                0
+            ],
+            "sampler": [
+                "389:1",
+                0
+            ],
+            "sigmas": [
+                "389:2",
+                0
+            ],
+            "latent_image": [
+                "445",
+                0
+            ]
+        },
+        "class_type": "SamplerCustomAdvanced"
+    },
+    "968:0": {
+        "inputs": {
+            "noise_seed": 190
+        },
+        "class_type": "RandomNoise"
+    },
+    "968:1": {
+        "inputs": {
+            "sampler_name": "heunpp2"
+        },
+        "class_type": "KSamplerSelect"
+    },
+    "968:2": {
+        "inputs": {
+            "scheduler": "beta",
+            "steps": 1,
+            "denoise": 0.35000000000000003,
+            "model": [
+                "453",
+                0
+            ]
+        },
+        "class_type": "BasicScheduler"
+    },
+    "968:3": {
+        "inputs": {
+            "guidance": 1,
+            "conditioning": [
+                "444",
+                0
+            ]
+        },
+        "class_type": "FluxGuidance"
+    },
+    "968:4": {
+        "inputs": {
+            "model": [
+                "453",
+                0
+            ],
+            "conditioning": [
+                "968:3",
+                0
+            ]
+        },
+        "class_type": "BasicGuider"
+    },
+    "968:5": {
+        "inputs": {
+            "noise": [
+                "968:0",
+                0
+            ],
+            "guider": [
+                "968:4",
+                0
+            ],
+            "sampler": [
+                "968:1",
+                0
+            ],
+            "sigmas": [
+                "968:2",
+                0
+            ],
+            "latent_image": [
+                "969",
+                0
+            ]
+        },
+        "class_type": "SamplerCustomAdvanced"
+    },
+    "976:0": {
+        "inputs": {
+            "noise_seed": 188
+        },
+        "class_type": "RandomNoise"
+    },
+    "976:1": {
+        "inputs": {
+            "sampler_name": "lcm"
+        },
+        "class_type": "KSamplerSelect"
+    },
+    "976:2": {
+        "inputs": {
+            "scheduler": "beta",
+            "steps": 1,
+            "denoise": 0.1,
+            "model": [
+                "453",
+                0
+            ]
+        },
+        "class_type": "BasicScheduler"
+    },
+    "976:3": {
+        "inputs": {
+            "guidance": 1,
+            "conditioning": [
+                "444",
+                0
+            ]
+        },
+        "class_type": "FluxGuidance"
+    },
+    "976:4": {
+        "inputs": {
+            "model": [
+                "453",
+                0
+            ],
+            "conditioning": [
+                "976:3",
+                0
+            ]
+        },
+        "class_type": "BasicGuider"
+    },
+    "976:5": {
+        "inputs": {
+            "noise": [
+                "976:0",
+                0
+            ],
+            "guider": [
+                "976:4",
+                0
+            ],
+            "sampler": [
+                "976:1",
+                0
+            ],
+            "sigmas": [
+                "976:2",
+                0
+            ],
+            "latent_image": [
+                "968:5",
+                0
+            ]
+        },
+        "class_type": "SamplerCustomAdvanced"
+    }
+}
